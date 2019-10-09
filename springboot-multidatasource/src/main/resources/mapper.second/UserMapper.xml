@@ -17,7 +17,7 @@
     <select id="findUserByName" parameterType="java.lang.String" resultMap="userMap">
         select
         <include refid="userList"/>
-        from test2.user
+        from mydb.user
         where username=#{username}
     </select>
 

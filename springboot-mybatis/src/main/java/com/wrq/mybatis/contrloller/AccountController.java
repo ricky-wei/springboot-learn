@@ -19,7 +19,7 @@ public class AccountController {
     private AccountService accountService;
 
     @GetMapping("/account")
-    public List<Account> getDataByName(@RequestParam(value = "name", required = true) String name) {
+    public List<Account> getDataByName(@RequestParam(value = "username", required = true) String name) {
         return accountService.findByName(name);
     }
 }

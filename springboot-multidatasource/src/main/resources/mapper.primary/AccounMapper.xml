@@ -17,7 +17,7 @@
     <select id="findAccountByName" parameterType="java.lang.String" resultMap="accountMap">
         select
         <include refid="accountList"/>
-        from test.account
+        from otherdb.account
         where name=#{username}
     </select>
 

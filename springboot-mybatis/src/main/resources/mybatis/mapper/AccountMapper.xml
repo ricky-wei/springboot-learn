@@ -17,15 +17,15 @@
     <select id="findByName" parameterType="java.lang.String" resultMap="accountMap">
         select
         <include refid="accountList"/>
-        from test.account
+        from otherdb.account
         where name=#{name}
     </select>
 
     <update id="increaseMoneyByName">
-        update test.account set money=money+#{money} where name=#{name}
+        update otherdb.account set money=money+#{money} where name=#{name}
     </update>
 
     <update id="decreaseMoneyByName">
-        update test.account set money=money-#{money} where name=#{name}
+        update otherdb.account set money=money-#{money} where name=#{name}
     </update>
 </mapper>
