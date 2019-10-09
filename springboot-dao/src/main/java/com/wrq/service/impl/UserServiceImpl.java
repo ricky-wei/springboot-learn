@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 /**
+ * 使用jdbcTemplate操作数据库
+ *
  * @author weiruiqi
  * @date 2019/10/8 16:39
  */
