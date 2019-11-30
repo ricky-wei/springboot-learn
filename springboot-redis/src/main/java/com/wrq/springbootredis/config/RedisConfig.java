@@ -1,13 +1,13 @@
 package com.wrq.springbootredis.config;
 
-import org.springframework.cache.annotation.CacheConfig;
+import com.wrq.springbootredis.bean.RedisObjectSerializer;
+import com.wrq.springbootredis.bean.User;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.lang.reflect.Method;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 
 /**
@@ -17,28 +17,14 @@ import java.lang.reflect.Method;
  * @Description redis配置类
  **/
 @Configuration
-@EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
-    public KeyGenerator keyGenerator() {
-
-        return new KeyGenerator(){
-            @Override
-            public Object generate(Object o, Method method, Object... objects) {
-
-                StringBuilder sb=new StringBuilder();
-
-                sb.append(o.getClass().getName());
-                sb.append(method.getName());
-
-                for(Object obj:objects){
-                    sb.append(obj.toString());
-                }
-
-                return sb.toString();
-            }
-        };
+    public RedisTemplate<String, User> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        RedisTemplate<String, User> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new RedisObjectSerializer());
+        return redisTemplate;
     }
-
 }

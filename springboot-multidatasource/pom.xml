@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.wrq</groupId>
-    <artifactId>multidatasource</artifactId>
+    <artifactId>springboot-multidatasource</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>multidatasource</name>
     <description>Multi-datasource project for Spring Boot</description>

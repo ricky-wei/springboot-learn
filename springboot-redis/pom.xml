@@ -11,7 +11,7 @@
     <groupId>com.wrq</groupId>
     <artifactId>springboot-redis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-redis</name>
+    <name>redis</name>
     <description>use redis project for Spring Boot</description>
 
     <properties>
@@ -34,6 +34,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
         </dependency>
     </dependencies>
 
