@@ -8,3 +8,5 @@
 3. 集成redis配置
 
 4. 使用jdbcTemplate和spring-data-jpa操作数据库
+
+5. 未完待续。。。
