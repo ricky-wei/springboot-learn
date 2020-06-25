@@ -1,12 +1,12 @@
 package com.wrq.springbootredis;
 
 import com.wrq.springbootredis.bean.User;
+import com.wrq.springbootredis.redis.RedisTemplate;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -20,7 +20,7 @@ public class SpringbootRedisApplicationTests {
     private StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    private RedisTemplate<String, User> redisTemplate;
+    RedisTemplate redisTemplate;
 
     @Test
     public void contextLoads() {
@@ -31,18 +31,18 @@ public class SpringbootRedisApplicationTests {
      */
     @Test
     public void testRedis() {
-        stringRedisTemplate.opsForValue().set("username", "Rose");
-        Assert.assertEquals("Rose", stringRedisTemplate.opsForValue().get("username"));
+        stringRedisTemplate.opsForValue().set("subject", "redis");
+        Assert.assertEquals("redis", stringRedisTemplate.opsForValue().get("subject"));
     }
 
     @Test
-    public void testSaveObject() {
+    public void testSaveObject() throws Exception {
 
         User user = new User();
-        user.setUserName("Rose");
+        user.setUserName("James");
         user.setAge(24);
-        redisTemplate.opsForValue().set(user.getUserName(), user);
 
-        Assert.assertEquals(24, redisTemplate.opsForValue().get("Rose").getAge().longValue());
+        redisTemplate.set("James", user);
+//        Assert.assertEquals(24, redisTemplate.opsForValue().get("Rose").getAge().longValue());
     }
 }
