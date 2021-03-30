@@ -1,0 +1,9 @@
+server:
+  port: 8888
+
+swagger:
+  contact:
+    name: 魏瑞琦
+  title: spring boot整合swagger使用示例
+  base-package: com.wrq
+  base-path: /**
