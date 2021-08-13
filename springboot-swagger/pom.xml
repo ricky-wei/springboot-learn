@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.springboot-learn</groupId>
-    <artifactId>swagger</artifactId>
+    <artifactId>springboot-swagger</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
